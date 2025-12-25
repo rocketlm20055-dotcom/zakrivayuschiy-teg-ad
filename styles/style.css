@@ -1,0 +1,309 @@
+.page {
+  min-block-size: 100dvb;
+  min-inline-size: 320px;
+  margin: 0;
+  font-family: var(--font-main), sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-main);
+  font-variation-settings: 'wght' var(--font-weight-text);
+  background-color: var(--page-background);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 23px, var(--grid-color) 23px 24px),
+    repeating-linear-gradient(90deg, transparent 0 23px, var(--grid-color) 23px 24px);
+  background-size: 48px 48px;
+}
+
+.page__section {
+  inline-size: var(--container-width);
+  margin: 0 auto;
+  padding: var(--section-gap) clamp(16px, 6vw, 24px);
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header__lead {
+  font-family: var(--font-accent), monospace;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 0.5rem + 2vw, 2rem);
+}
+
+.header__title {
+  margin: 0;
+  font-family: var(--font-accent), monospace;
+  font-size: clamp(1.5rem, 1rem + 3vw, 3rem);
+  text-transform: uppercase;
+  font-variation-settings: 'wght' var(--font-weight-title);
+}
+
+.header__subtitle {
+  margin: 0 auto;
+  max-inline-size: 52ch;
+  color: var(--text-muted);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  padding: clamp(16px, 12px + 1vw, 24px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card__title {
+  margin: 0;
+  font-size: clamp(1.1rem, 1rem + 1vw, 1.5rem);
+  font-variation-settings: 'wght' var(--font-weight-title);
+}
+
+.card__image-wrapper {
+  position: relative;
+  border: 2px solid var(--card-border);
+  overflow: hidden;
+}
+
+.card__image-wrapper img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.card__image_filter-start {
+  filter: saturate(1.15) contrast(1.05);
+}
+
+.card__image_filter-focus {
+  filter: grayscale(0.15) contrast(1.1);
+}
+
+.card__image_filter-hope {
+  filter: hue-rotate(-12deg) saturate(1.3);
+}
+
+.card__image_filter-idea {
+  filter: sepia(0.2) saturate(1.2);
+}
+
+.card__image_filter-care {
+  filter: brightness(1.05) hue-rotate(18deg);
+}
+
+.card__image_filter-strategy {
+  filter: contrast(1.25) brightness(0.95);
+}
+
+.card__image_filter-power {
+  filter: blur(2px) saturate(1.4);
+}
+
+.card__image_filter-experience {
+  filter: grayscale(0.2) sepia(0.15) contrast(1.1);
+}
+
+.card__label {
+  position: absolute;
+  inset-block-start: 12px;
+  inset-inline-end: 12px;
+  font-family: var(--font-accent), monospace;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background-color: #fff;
+  border: 2px solid var(--card-border);
+  padding: 4px 8px;
+}
+
+.card__label-text {
+  color: var(--label-text);
+  text-shadow:
+    -1px 0 0 var(--card-border),
+    1px 0 0 var(--card-border),
+    0 -1px 0 var(--card-border),
+    0 1px 0 var(--card-border);
+}
+
+@supports ((-webkit-text-stroke: 1px var(--card-border)) or (text-stroke: 1px var(--card-border))) {
+  .card__label-text {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--card-border);
+    text-stroke: 1px var(--card-border);
+  }
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card__text p {
+  margin: 0;
+}
+
+.card__actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card__icon-button {
+  inline-size: 52px;
+  block-size: 52px;
+  border: 2px solid var(--card-border);
+  background-color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  box-shadow: 3px 3px 0 var(--card-border);
+}
+
+.button {
+  position: relative;
+  border: 2px solid var(--card-border);
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-family: var(--font-accent), monospace;
+  font-size: 0.75rem;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  padding: 12px 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--button-overlay);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::after {
+  transform: translateX(0);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 3px 3px 0 var(--button-shadow);
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: #ffffff;
+}
+
+.save {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  border: 2px solid var(--card-border);
+  background-color: var(--card-bg);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
+}
+
+.save__title {
+  margin: 0;
+  font-size: clamp(1rem, 0.9rem + 1vw, 1.4rem);
+  font-family: var(--font-accent), monospace;
+}
+
+.save__text {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.save__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.save__icon {
+  inline-size: 20px;
+  block-size: 20px;
+}
+
+.modal {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.modal__content {
+  border: 2px solid var(--card-border);
+  background-color: var(--card-bg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  inline-size: min(320px, 80vw);
+}
+
+.modal__icon {
+  inline-size: 48px;
+  block-size: 48px;
+  margin: 0 auto;
+}
+
+.modal__title {
+  margin: 0;
+  font-family: var(--font-accent);
+  text-align: center;
+}
+
+.modal__text {
+  margin: 0;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.modal__button {
+  align-self: center;
+}
+
+.like-icon {
+  inline-size: 32px;
+  block-size: 32px;
+  display: block;
+}
+
+@media (width <= 600px) {
+  .button {
+    inline-size: 100%;
+    text-align: center;
+  }
+
+  .card__actions {
+    justify-content: center;
+  }
+}

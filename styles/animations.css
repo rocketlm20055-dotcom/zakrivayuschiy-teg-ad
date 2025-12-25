@@ -1,0 +1,70 @@
+.like-icon .core,
+.like-icon .main-body,
+.like-icon .contour {
+  transition: fill 0.3s ease;
+}
+
+.like-icon .contour {
+  fill: var(--contour-color);
+}
+
+.like-icon .sparks {
+  opacity: 0;
+}
+
+.card__icon-button:is(:hover, :focus-visible) .like-icon .core,
+.card__icon-button:is(:hover, :focus-visible) .like-icon .main-body {
+  fill: var(--contour-color);
+}
+
+.card__icon-button:active .like-icon .core,
+.card__icon-button:active .like-icon .main-body {
+  fill: var(--animation-fill-color);
+}
+
+.like-icon.is-liked .core,
+.like-icon.is-liked .main-body,
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-bump 0.3s ease-in 0.1s forwards;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-flash 0.3s ease-in 0.3s forwards;
+}
+
+.like-icon:not(.is-liked) .core,
+.like-icon:not(.is-liked) .main-body {
+  fill: none;
+}
+
+.like-icon:not(.is-liked) .sparks {
+  animation: none;
+}
+
+@keyframes heart-bump {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sparks-flash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
