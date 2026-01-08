@@ -1,32 +1,9 @@
- :root {
-  --font-main: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-accent: 'PressStart2P', 'Courier New', Courier, monospace;
-
-  --font-weight-text: 400;
-  --font-weight-title: 785;
-
-  --text-main: #000;
-  --text-muted: #5c5c5c;
-  --card-bg: #ffffff;
-  --card-border: #000000;
-  --button-bg: #ffffff;
-  --button-text: #000000;
-  --button-shadow: #000000;
-  --button-overlay: #000000;
-  --page-background: #f4f4f4;
-  --grid-color: #d8d8d8;
-  --label-text: #000000;
-
-  --container-width: clamp(320px, 92vw, 728px);
-  --section-gap: clamp(24px, 16px + 2vw, 40px);
-  --card-gap: clamp(20px, 14px + 1.5vw, 28px);
-
-  --contour-color: #000000;
-  --animation-fill-color: #ff004c;
-}
-
-@media (width <= 375px) {
-  :root {
-    --container-width: 100%;
-  }
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+    --main-font: 'Inter';
+    --accent-font: 'PressStart2P-Regular';
+    --bg-color: #fff;
+    --color: #000;
+    --stroke-color: #fff;
+    --heart-color: red;
 }
